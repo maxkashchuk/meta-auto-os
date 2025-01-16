@@ -1,0 +1,11 @@
+# Bootloader partition
+part /boot --source bootimg-partition --ondisk mmcblk0 --fstype=vfat --label BOOT --active --align 1024 --fixed-size 128M --use-uuid
+
+# First instnce partition
+part / --source rootfs --ondisk mmcblk0 --fstype=ext4 --label instance_A --align 1024 --fixed-size 14G --use-uuid
+
+# Second instance partition
+part / --source rootfs --ondisk mmcblk0 --fstype=ext4 --label instance_B --align 1024 --fixed-size 14G --use-uuid
+
+# Reserved space
+part /data --ondisk mmcblk0 --fstype=ext4 --label DATA --align 1024 --fixed-size 512M --use-uuid
